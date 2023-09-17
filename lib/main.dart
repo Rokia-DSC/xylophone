@@ -27,6 +27,21 @@ class _AudioPageState extends State<AudioPage> {
     );
   }
 
+  Expanded buildKey({Color? colorB, Color? colorF, int? soundNumber}) {
+    return Expanded(
+      child: TextButton(
+        style: TextButton.styleFrom(
+          foregroundColor: colorF,
+          backgroundColor: colorB,
+        ),
+        onPressed: () {
+          playSound(soundNumber!);
+        },
+        child: const Text('Click Me'),
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -35,90 +50,21 @@ class _AudioPageState extends State<AudioPage> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            Expanded(
-              child: TextButton(
-                style: TextButton.styleFrom(
-                  foregroundColor: Colors.white,
-                  backgroundColor: Colors.blue,
-                ),
-                onPressed: () {
-                  playSound(1);
-                },
-                child: const Text('Click Me'),
-              ),
-            ),
-            Expanded(
-              child: TextButton(
-                style: TextButton.styleFrom(
-                  foregroundColor: Colors.white,
-                  backgroundColor: Colors.red,
-                ),
-                onPressed: () {
-                  playSound(2);
-                },
-                child: const Text('Click Me'),
-              ),
-            ),
-            Expanded(
-              child: TextButton(
-                style: TextButton.styleFrom(
-                  foregroundColor: Colors.white,
-                  backgroundColor: Colors.orange,
-                ),
-                onPressed: () {
-                  playSound(3);
-                },
-                child: const Text('Click Me'),
-              ),
-            ),
-            Expanded(
-              child: TextButton(
-                style: TextButton.styleFrom(
-                  foregroundColor: Colors.white,
-                  backgroundColor: Colors.yellow,
-                ),
-                onPressed: () {
-                  playSound(4);
-                },
-                child: const Text('Click Me'),
-              ),
-            ),
-            Expanded(
-              child: TextButton(
-                style: TextButton.styleFrom(
-                  foregroundColor: Colors.white,
-                  backgroundColor: Colors.purpleAccent,
-                ),
-                onPressed: () {
-                  playSound(5);
-                },
-                child: const Text('Click Me'),
-              ),
-            ),
-            Expanded(
-              child: TextButton(
-                style: TextButton.styleFrom(
-                  foregroundColor: Colors.white,
-                  backgroundColor: Colors.grey,
-                ),
-                onPressed: () {
-                  playSound(6);
-                },
-                child: const Text('Click Me'),
-              ),
-            ),
-            Expanded(
-              child: TextButton(
-                style: TextButton.styleFrom(
-                  foregroundColor: Colors.white,
-                  backgroundColor: Colors.greenAccent,
-                ),
-                onPressed: () {
-                  playSound(7);
-                },
-                child: const Text('Click Me'),
-              ),
-            ),
+            buildKey(colorB: Colors.blue, colorF: Colors.white, soundNumber: 1),
+            buildKey(colorB: Colors.red, colorF: Colors.white, soundNumber: 2),
+            buildKey(
+                colorB: Colors.orange, colorF: Colors.white, soundNumber: 3),
+            buildKey(
+                colorB: Colors.purpleAccent,
+                colorF: Colors.white,
+                soundNumber: 4),
+            buildKey(
+                colorB: Colors.yellow, colorF: Colors.white, soundNumber: 5),
+            buildKey(colorB: Colors.grey, colorF: Colors.white, soundNumber: 6),
+            buildKey(
+                colorB: Colors.greenAccent,
+                colorF: Colors.white,
+                soundNumber: 7),
           ],
         ),
       ),
